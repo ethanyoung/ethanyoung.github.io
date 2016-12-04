@@ -1,7 +1,6 @@
 window.onload = function () {
-    var game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game-screen', { preload: preload, create: create, update: update });
+    var game = new Phaser.Game("100%","100%", Phaser.CANVAS, 'game-screen', { preload: preload, create: create, update: update });
 
-    // var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { create: create, update: update });
 
     function preload() {
         game.load.spritesheet('sheep', 'assets/images/sheep32x32.png', 32, 32);
@@ -28,7 +27,8 @@ window.onload = function () {
         var pixelWidth = 6;
         var pixelHeight = 6;
 
-        sheep = game.add.sprite(160, 240, 'sheep');
+        sheep = game.add.sprite(0, 0, 'sheep');
+        sheep.alignIn(game.world.bounds, Phaser.CENTER, 0, 0);
         sheep.scale.set(3);
         sheep.smoothed = false;
         sheep.anchor.set(0.5);
@@ -58,6 +58,7 @@ window.onload = function () {
             '................'
         ];
         game.create.texture('burger', burgerData, pixelWidth, pixelHeight, 0);
+        game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
         burger = game.add.sprite(150, 400, 'burger').alignIn(game.world.bounds, Phaser.BOTTOM_CENTER);
 
         burger.inputEnabled = true;
