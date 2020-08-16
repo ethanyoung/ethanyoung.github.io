@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  How to Publish .NET Core Nuget to nuget.org
+title:  Publish .NET Core Nuget to nuget.org
 date:   2020-06-09 10:06:18 +1000
 ---
 
